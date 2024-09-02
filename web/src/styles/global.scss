@@ -1,0 +1,111 @@
+// @font-face {
+//     font-family: "raleway";
+//     src: url("/raleway-base.ttf");
+//     font-display: swap;
+// }
+
+$font: monospace, sans-serif;
+
+:global(:root) {
+    --z-nav: 1000;
+    --z-modal: 1050;
+
+    --content-width: min(100%, 90ch);
+    --border-width: 2px;
+    --border-radius: 0.5rem;
+
+    // Text
+    --theme-text: #bfbfbf;
+    --theme-text-dark: #a1a1a1;
+
+    --theme-accent: #bf8d50;
+    --theme-danger: #b63c3c;
+    --theme-warning: var(--theme-accent);
+    --theme-success: var(--theme-accent);
+
+    // Elements
+    --theme-primary: #0c0c0c;
+    --theme-secondary: #171717;
+    --theme-tertiary: #000000;
+
+    // tags
+    --tag-green: hsl(128, 17%, 51%);
+    --tag-yellow: hsl(50, 35%, 58%);
+    --tag-orange: hsl(36, 35%, 56%);
+    --tag-red: hsl(0, 25%, 57%);
+    --tag-blue: hsl(203, 22%, 62%);
+    --tag-purple: hsl(270, 25%, 57%);
+    --tag-pink: hsl(330, 25%, 57%);
+    --tag-cyan: hsl(180, 25%, 57%);
+
+    // TODO: implement themes?
+    @media (prefers-color-scheme: dark) {
+    }
+
+    @media (prefers-color-scheme: light) {
+    }
+}
+
+:global(*) {
+    font-feature-settings:
+        "pnum" on,
+        "lnum" on;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    font-family: $font;
+}
+
+:global(html, body) {
+    max-width: 100vw;
+    color-scheme: dark light;
+
+    color: var(--theme-text);
+}
+
+:global(body) {
+    min-height: 100%;
+}
+
+:global(html) {
+    background-color: var(--theme-primary);
+}
+
+:global(a) {
+    color: inherit;
+    text-decoration: none;
+}
+
+:global(::-webkit-scrollbar) {
+    width: 5px;
+}
+
+:global(::-webkit-scrollbar-thumb) {
+    background: #555;
+    border-radius: 10px;
+}
+
+:global(::-webkit-scrollbar-track) {
+    background: #222;
+    border-radius: 10px;
+}
+
+:global(input, textarea, button, select) {
+    font-family: $font;
+    font-size: 0.8rem;
+    color: currentColor;
+    background-color: transparent;
+    border: var(--border-width) solid currentColor;
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+}
+
+:global(input, button, select) {
+    cursor: pointer;
+}
+
+:global(*::selection) {
+    background-color: var(--theme-accent);
+    color: var(--theme-primary);
+}
